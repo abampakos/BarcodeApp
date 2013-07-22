@@ -51,15 +51,7 @@ var app = {
         try {
 		var scanner = cordova.require("cordova/plugin/BarcodeScanner");
             scanner.scan(function(args) {
-                alert("Scanner result: \n" +
-                    "text: " + args.text + "\n" +
-                    "format: " + args.format + "\n" +
-                    "cancelled: " + args.cancelled + "\n");
-                /*
-                if (args.format == "QR_CODE") {
-                    window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-                }
-                */
+			alert(args.text);
         });
         } catch (ex) {
             alert(ex.message);
