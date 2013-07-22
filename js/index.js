@@ -48,34 +48,24 @@ var app = {
         console.log('Received Event: ' + id);
     },
     scan: function() {
-       scan: function() { 
-		console.log('scanning'); 
-		var scanner = cordova.require("cordova/plugin/BarcodeScanner"); 
-		if (scanner == undefined) { 
-		console.log('scanner is undefined'); 
-		} 
-		else { 
-		console.log('scanner is defined'); 
-		} 
-		try {	
-		scanner.scan(function(args) { 
-		console.log("Scanner result: \n" + 
-		"text: " + args.text + "\n" + 
-		"format: " + args.format + "\n" + 
-		"cancelled: " + args.cancelled + "\n"); 
-		/* 
-		if (args.format == "QR_CODE") { 
-		window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false }); 
-		} 
-		*/ 
-		document.getElementById("info").innerHTML = args.text; 
-		console.log(args); 
-		}); 
-		} catch (ex) { 
-		console.log(ex.message); 
-		} 
-} 
-
+        alert('scanning');
+        try {
+            window.plugins.barcodeScanner.scan(function(args) {
+                alert("Scanner result: \n" +
+                    "text: " + args.text + "\n" +
+                    "format: " + args.format + "\n" +
+                    "cancelled: " + args.cancelled + "\n");
+                /*
+                if (args.format == "QR_CODE") {
+                    window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+                }
+                */
+                document.getElementById("info").innerHTML = args.text;
+                alert.log(args);
+        });
+        } catch (ex) {
+            alert.log(ex.message);
+        }
     }
 
 };
