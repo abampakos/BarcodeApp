@@ -48,9 +48,8 @@ var app = {
         console.log('Received Event: ' + id);
     },
     scan: function() {
-        alert('scanning');
-		var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         try {
+		var scanner = cordova.require("cordova/plugin/BarcodeScanner");
             window.plugins.barcodeScanner.scan(function(args) {
                 alert("Scanner result: \n" +
                     "text: " + args.text + "\n" +
@@ -62,10 +61,10 @@ var app = {
                 }
                 */
                 document.getElementById("info").innerHTML = args.text;
-                alert.log(args);
+                alert(args);
         });
         } catch (ex) {
-            alert.log(ex.message);
+            alert(ex.message);
         }
     }
 
