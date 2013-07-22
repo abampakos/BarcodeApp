@@ -60,8 +60,6 @@ var app = {
                     window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
                 }
                 */
-                document.getElementById("info").innerHTML = args.text;
-                alert(args);
         });
         } catch (ex) {
             alert(ex.message);
